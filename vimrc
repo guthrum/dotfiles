@@ -9,6 +9,7 @@ call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
 
   Plugin 'tpope/vim-fugitive'
+  Plugin 'dracula/vim'
 
   Plugin 'octol/vim-cpp-enhanced-highlight' " C++ syntax highlighting
   Plugin 'Valloric/YouCompleteMe'

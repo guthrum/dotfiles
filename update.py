@@ -4,7 +4,7 @@ import os
 import ctypes
 import shutil
 
-list_of_files = ["~/.vimrc", "~/.zshrc"]
+list_of_files = ["~/.vimrc", "~/.zshrc", "~/.tmux.conf"]
 
 def check_if_hidden_file(filepath):
     name = os.path.basename(os.path.expanduser(filepath))
