@@ -16,6 +16,9 @@ call vundle#begin()
 
   Plugin 'davidhalter/jedi-vim'
   Plugin 'Valloric/MatchTagAlways'
+
+  Plugin 'nvie/vim-flake8'
+  Plugin 'majutsushi/tagbar'
 call vundle#end()            " required
 filetype plugin indent on 
 
@@ -72,6 +75,5 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
 
 set foldmethod=manual
