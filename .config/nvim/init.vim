@@ -11,7 +11,7 @@ if dein#load_state('/home/tim/.config/nvim/.')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/tim/.config/nvim/./repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   "call dein#add('Shougo/neosnippet.vim')
@@ -27,6 +27,8 @@ if dein#load_state('/home/tim/.config/nvim/.')
   call dein#add('zchee/deoplete-clang')
 
   call dein#add('octol/vim-cpp-enhanced-highlight')
+
+  call dein#add('editorconfig/editorconfig-vim')
 
 
   call dein#add('dracula/vim')
@@ -111,9 +113,5 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
 
 set foldmethod=manual

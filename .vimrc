@@ -15,10 +15,8 @@ call vundle#begin()
   Plugin 'Valloric/YouCompleteMe'
 
   Plugin 'davidhalter/jedi-vim'
+  Plugin 'vim-syntastic/syntastic'
   Plugin 'Valloric/MatchTagAlways'
-
-  Plugin 'nvie/vim-flake8'
-  Plugin 'majutsushi/tagbar'
 call vundle#end()            " required
 filetype plugin indent on 
 
@@ -26,6 +24,15 @@ filetype plugin indent on
 let g:cpp_class_scope_highlight = 1
 " C++ library concepts
 let g:cpp_concepts_highlight = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 set background=dark 
 set t_Co=256
@@ -75,5 +82,6 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
 
 set foldmethod=manual

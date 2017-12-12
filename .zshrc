@@ -5,7 +5,6 @@
 # redshift -O 5000
 
 # Path to your oh-my-zsh installation.
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export ZSH=/home/tim/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -21,24 +20,32 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/usr/local/cuda/bin
+export PATH=/home/tim/.cargo/bin:$PATH
+export VISUAL=vim
 export EDITOR=vim
 
 
 # User configuration
-export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH=/usr/local/man:$MANPATH
 export LD_LIBRARY_PATH=~/.local/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PATH=$PATH:~/.local/bin
 export CPATH=$CPATH:~/.local/include
-
-# GOPATH
-export GOPATH=$HOME/.gopath/
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/"
 
 export TERM='xterm'
 
-if [ -z "$TMUX" ]; then
-  tmux
-fi
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+alias tmux="TERM=screen-256color-bce tmux"
+
+#if [ -z "$TMUX" ]; then
+#  tmux
+#fi
+
+export PATH=$PATH:/home/tim/bin
