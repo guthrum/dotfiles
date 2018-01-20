@@ -24,9 +24,14 @@ if dein#load_state('/home/tim/.config/nvim/.')
   call dein#add('roxma/vim-hug-neovim-rpc')
   
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-clang')
+
+  call dein#add('dhalter/jedi')
+  call dein#add('zchee/deoplete-jedi')
+
+  call dein#add('Rip-Rip/clang_complete')
 
   call dein#add('octol/vim-cpp-enhanced-highlight')
+  call dein#add('neomake/neomake')
 
   call dein#add('editorconfig/editorconfig-vim')
 
@@ -54,14 +59,26 @@ syntax on
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 let g:deoplete#sources#clang#sort_algo = 'priority'
 
 " C++ class scope highlighting
 "let g:cpp_class_scope_highlight = 1
 " " C++ library concepts
 "let g:cpp_concepts_highlight = 1
+
+
+" or path directly to the library file
+let g:clang_library_path='/usr/lib64/libclang.so'
+let g:clang_user_options="-std=c++17"
+
+call neomake#configure#automake('rw', 1000)
+let g:neomake_cpp_enable_makers = ['clang']
+let g:neomake_cpp_clang_maker = {
+    \ 'args': ['-std=c++17', '-Wall', '-Wextra', '-Weverything', '-pedantic']
+    \ }
+
+let g:neomake_python_enabled_makers = ['flake8']
+
 
 set t_Co=256 
 colorscheme dracula
@@ -94,6 +111,8 @@ set number
 set scrolloff=3
 set sidescrolloff=3 
 
+set autoindent
+
 set wrap
 set smartindent
 set copyindent
@@ -106,7 +125,7 @@ set incsearch
 let g:mapleader=" "
 
 noremap <s-k> <k>
-inoremap <C-c> <esc>
+noremap <C-c> <esc>
 "inoremap jk <esc>
 "inoremap kj <esc>
 noremap <Up> <NOP>
