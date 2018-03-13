@@ -25,16 +25,12 @@ if dein#load_state('/home/tim/.config/nvim/.')
   
   call dein#add('Shougo/deoplete.nvim')
 
-  call dein#add('dhalter/jedi')
-  call dein#add('zchee/deoplete-jedi')
-
   call dein#add('Rip-Rip/clang_complete')
 
   call dein#add('octol/vim-cpp-enhanced-highlight')
   call dein#add('neomake/neomake')
 
   call dein#add('editorconfig/editorconfig-vim')
-
 
   call dein#add('dracula/vim')
 
