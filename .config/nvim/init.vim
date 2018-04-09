@@ -3,7 +3,7 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-set runtimepath+=/home/tim/.config/nvim/./repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim
 
 " Required:
 if dein#load_state('/home/tim/.config/nvim/.')
@@ -12,13 +12,6 @@ if dein#load_state('/home/tim/.config/nvim/.')
   " Let dein manage dein
   " Required:
   call dein#add('/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
@@ -31,8 +24,13 @@ if dein#load_state('/home/tim/.config/nvim/.')
   call dein#add('neomake/neomake')
 
   call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('plytophogy/vim-virtualenv')
+  call dein#add('airblade/vim-gitgutter')
 
   call dein#add('dracula/vim')
+  call dein#add('arcticicestudio/nord-vim')
+
+  call dein#add('vim-airline/vim-airline')
 
   " Required:
   call dein#end()
@@ -75,11 +73,16 @@ let g:neomake_cpp_clang_maker = {
 
 let g:neomake_python_enabled_makers = ['flake8']
 
+let g:gitgutter_log=1
 
 set t_Co=256 
-colorscheme dracula
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+set termguicolors
+let g:nord_comment_brightness = 15
+colorscheme nord
 
-hi Visual term=reverse cterm=reverse guibg=Grey
+ hi Visual term=reverse cterm=reverse guibg=Grey
 
 set history=1000
 set title
