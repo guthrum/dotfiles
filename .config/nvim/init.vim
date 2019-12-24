@@ -3,6 +3,8 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 set runtimepath+=/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim
 
 " Required:
@@ -76,11 +78,8 @@ let g:neomake_python_enabled_makers = ['flake8']
 let g:gitgutter_log=1
 
 set t_Co=256 
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
 set termguicolors
-let g:nord_comment_brightness = 15
-colorscheme nord
+colorscheme dracula
 
  hi Visual term=reverse cterm=reverse guibg=Grey
 
