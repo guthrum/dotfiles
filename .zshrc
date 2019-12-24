@@ -30,7 +30,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 # ssh
 export SSH_KEY_PATH="~/.ssh/"
 
-export TERM='screen-256color'
+export TERM='xterm-256color'
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
