@@ -3,8 +3,6 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-let g:python3_host_prog = '/usr/bin/python3'
-
 set runtimepath+=/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim
 
 " Required:
@@ -15,21 +13,14 @@ if dein#load_state('/home/tim/.config/nvim/.')
   " Required:
   call dein#add('/home/tim/.config/nvim/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
+  call dein#add('neoclide/coc.nvim', {'merge':0, 'rev': 'release'})
+  call dein#add('jackguo380/vim-lsp-cxx-highlight')
   
-  call dein#add('Shougo/deoplete.nvim')
-
-  call dein#add('Rip-Rip/clang_complete')
-
-  call dein#add('octol/vim-cpp-enhanced-highlight')
-  call dein#add('neomake/neomake')
-
-  call dein#add('editorconfig/editorconfig-vim')
   call dein#add('plytophogy/vim-virtualenv')
   call dein#add('airblade/vim-gitgutter')
 
   call dein#add('dracula/vim')
+  call dein#add('agude/vim-eldar')
   call dein#add('arcticicestudio/nord-vim')
 
   call dein#add('vim-airline/vim-airline')
@@ -42,46 +33,26 @@ endif
 " Required:
 filetype plugin indent on
 syntax on
-
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
+let mapleader = "\<Space>"
 
 "End dein Scripts-------------------------
 
-" Deoplete setup.
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#sources#clang#sort_algo = 'priority'
-
-" C++ class scope highlighting
-"let g:cpp_class_scope_highlight = 1
-" " C++ library concepts
-"let g:cpp_concepts_highlight = 1
-
-
-" or path directly to the library file
-let g:clang_library_path='/usr/lib64/libclang.so'
-let g:clang_user_options="-std=c++17"
-
-call neomake#configure#automake('rw', 1000)
-let g:neomake_cpp_enable_makers = ['clang']
-let g:neomake_cpp_clang_maker = {
-    \ 'args': ['-std=c++17', '-Wall', '-Wextra', '-Weverything', '-pedantic']
-    \ }
-
-let g:neomake_python_enabled_makers = ['flake8']
-
 let g:gitgutter_log=1
+
+
+" CoC key bindings
+"
+nmap <leader>rn <Plug>(coc-rename)
+" end CoC key bindings
+
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
 
 set t_Co=256 
 set termguicolors
-colorscheme dracula
+colorscheme eldar
 
- hi Visual term=reverse cterm=reverse guibg=Grey
+hi Visual term=reverse cterm=reverse guibg=Grey
 
 set history=1000
 set title
