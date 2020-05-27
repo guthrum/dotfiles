@@ -29,10 +29,6 @@ export TERM='screen-256color'
 
 DISABLE_AUTO_TITLE="true"
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 alias tmux="TERM=screen-256color tmux"
 alias vim="nvim"
 alias gal="git add *.tex *.pdf"
