@@ -1,4 +1,6 @@
 {
+  "coc.preferences.jumpCommand": "drop",
+  "rust-analyzer.serverPath": "~/.local/bin/rust-analyzer",
   "languageserver": {
     "ccls": {
       "command": "ccls",

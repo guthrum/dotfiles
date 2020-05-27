@@ -24,6 +24,7 @@ if dein#load_state('/home/tim/.config/nvim/.')
   call dein#add('arcticicestudio/nord-vim')
 
   call dein#add('vim-airline/vim-airline')
+  call dein#add('tpope/vim-commentary')
 
   " Required:
   call dein#end()
@@ -43,6 +44,15 @@ let g:gitgutter_log=1
 " CoC key bindings
 "
 nmap <leader>rn <Plug>(coc-rename)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
 " end CoC key bindings
 
 " let g:nord_italic = 1
