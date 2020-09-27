@@ -33,6 +33,7 @@ alias tmux="TERM=screen-256color tmux"
 alias vim="nvim"
 alias gal="git add *.tex *.pdf"
 alias python=python3
+alias update_rust_analyzer="curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer && chmod +x ~/.local/bin/rust-analyzer"
 
 export PATH=$PATH:/home/tim/bin
 
