@@ -40,6 +40,10 @@ let mapleader = "\<Space>"
 
 let g:gitgutter_log=1
 
+let g:loaded_python_provider = 0
+
+autocmd Filetype java setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 
 " CoC key bindings
 "

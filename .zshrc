@@ -42,3 +42,4 @@ autoload -Uz compinit && compinit -i
 
 alias restart_kwin="killall plasmashell; kstart plasmashell"
 alias ls=exa
+alias today="mkdir $(date '+%F')"
