@@ -30,7 +30,7 @@ font-3 = "Noto Sans Symbols2:size=10;1"
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = date eth1 cpu 
+modules-right = eth1 cpu pulseaudio  date
 
 tray-position = right
 tray-padding = 2
@@ -96,16 +96,24 @@ type = internal/date
 interval = 5
 
 date = "%a %d"
-date-alt = %a %b %d
-
-time = %I:%M
-time-alt = %I:%M%p
+time = %H:%M
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+interval = 5
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+click-right = pavucontrol &
 
 [settings]
 screenchange-reload = true
