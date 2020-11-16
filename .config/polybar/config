@@ -30,7 +30,7 @@ font-3 = "Noto Sans Symbols2:size=10;1"
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = eth1 cpu pulseaudio  date
+modules-right = vpn-openvpn-status eth1 cpu pulseaudio  date
 
 tray-position = right
 tray-padding = 2
@@ -114,6 +114,11 @@ label-muted = 🔇 muted
 label-muted-foreground = #666
 
 click-right = pavucontrol &
+
+[module/vpn-openvpn-status]
+type = custom/script
+exec = ~/.config/polybar/vpn-openvpn-status.sh
+interval = 5
 
 [settings]
 screenchange-reload = true
