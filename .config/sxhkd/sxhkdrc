@@ -25,6 +25,13 @@ super + shift + k
 	keepassxc
 
 #
+# Media control
+#
+
+super + p
+	playerctl play-pause
+
+#
 # bspwm hotkeys
 #
 
