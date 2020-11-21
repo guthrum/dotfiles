@@ -6,6 +6,18 @@ feh --bg-scale ~/.media/the_valley.png
 
 ~/.config/polybar/start.sh &
 
+
+bspc rule -a Spotify desktop='^6' state=pseudo_tiled
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          0
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
 # Lock screen
 xidlehook \
   `# Don't lock when there's a fullscreen application` \
@@ -19,14 +31,4 @@ xidlehook \
   `# Undim & lock after 10 more seconds` \
   --timer 10 \
     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock -c 444444' \
-    '' \
-
-
-bspc monitor -d I II III IV V VI VII VIII IX X
-
-bspc config border_width         2
-bspc config window_gap          0
-
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+    '' &
