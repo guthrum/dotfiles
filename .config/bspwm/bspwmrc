@@ -23,6 +23,9 @@ nextcloud &
 # Reload sxhkd since some keybindings don't work.
 pkill -USR1 -x sxhkd
 
+# Fix Jetbrains IDEs
+/home/tim/.local/bin/wmname LG3D
+
 # Lock screen
 xidlehook \
   `# Don't lock when there's a fullscreen application` \
