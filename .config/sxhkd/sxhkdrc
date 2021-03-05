@@ -19,7 +19,7 @@ super + Escape
 #
 
 super + shift + w
-	firefox
+	chromium
 
 super + shift + k
 	keepassxc
