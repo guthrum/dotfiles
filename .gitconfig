@@ -1,0 +1,6 @@
+[user]
+	signingkey = 
+	name = Tim Armstrong
+	email = "git.tim.armstrong@gmail.com "
+[commit]
+	gpgsign = true
