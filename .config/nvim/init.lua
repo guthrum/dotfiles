@@ -1,5 +1,7 @@
 require('plugins')
 
+require('lsp')
+
 local opt = vim.opt
 
 opt.background = 'dark'
@@ -24,5 +26,7 @@ opt.wrap = true
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[,]]
 
+-- git
+require('gitsigns').setup()
 
 

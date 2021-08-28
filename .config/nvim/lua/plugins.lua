@@ -6,4 +6,20 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
 
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-buffer",
+    }
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+
 end)
