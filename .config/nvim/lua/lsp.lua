@@ -26,8 +26,8 @@ cmp.setup({
     ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      --elseif luasnip.expand_or_jumpable() then
+      --  vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
       else
         fallback()
       end
@@ -78,7 +78,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'rust_analyzer', 'pyright', 'terraformls' }
+local servers = { 'rust_analyzer', 'pyright', 'terraformls', "html", "tsserver" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
