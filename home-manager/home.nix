@@ -180,6 +180,12 @@
       column = {
         ui = "auto";
       };
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
+      };
       fetch = {
         prune = true;
         pruneTags = true;
