@@ -24,6 +24,7 @@
     pkgs.jq
     pkgs.fzf
     pkgs.eza
+    pkgs.gh
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -167,6 +168,7 @@
       user = {
         name  = "Tim Armstrong";
         email = "git.tim.armstrong@gmail.com";
+        signingkey = "3BAEB22F20B8A7E9";
       };
       commit = {
         gpgsign = true;
