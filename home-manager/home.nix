@@ -170,10 +170,33 @@
         email = "git.tim.armstrong@gmail.com";
         signingkey = "3BAEB22F20B8A7E9";
       };
+      branch = {
+        sort = "-committerdate";
+      };
       commit = {
         gpgsign = true;
+        verbose = true;
+      };
+      column = {
+        ui = "auto";
+      };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
+      };
+      help = {
+        autocorrect = "prompt";
+      };
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+        followTags = true;
       };
       init.defaultBranch = "main";
+      tag = {
+        sort = "version:refname";
+      };
     };
   };
   programs.neovim = {
