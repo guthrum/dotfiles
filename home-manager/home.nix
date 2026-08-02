@@ -161,6 +161,19 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.fish = {
+    enable = true;
+  };
+
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if [[ $- == *i* ]]; then
+        exec ${pkgs.fish}/bin/fish
+      fi
+    '';
+  };
   programs.git = {
     enable = true;
     settings = {
