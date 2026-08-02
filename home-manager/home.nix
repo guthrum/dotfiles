@@ -1,13 +1,22 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
     ./cfg.nix
   ];
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
+  options = {
+    customizations.git.signingKey = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "GPG signing key for git commits";
+    };
+  };
+
+  config = {
+    # This value determines the Home Manager release that your configuration is
+    # compatible with. This helps avoid breakage when a new Home Manager release
+    # introduces backwards incompatible changes.
   #
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
@@ -164,6 +173,7 @@
 
   programs.fish = {
     enable = true;
+    generateCompletions = false;
   };
 
   programs.bash = {
@@ -180,13 +190,14 @@
       user = {
         name  = "Tim Armstrong";
         email = "git.tim.armstrong@gmail.com";
-        signingkey = "3BAEB22F20B8A7E9";
-      };
+      } // (lib.optionalAttrs (config.customizations.git.signingKey != null) {
+        signingkey = config.customizations.git.signingKey;
+      });
       branch = {
         sort = "-committerdate";
       };
       commit = {
-        gpgsign = true;
+        gpgsign = config.customizations.git.signingKey != null;
         verbose = true;
       };
       column = {
@@ -271,5 +282,6 @@
       -- git
       require('gitsigns').setup()
     '';
+  };
   };
 }
