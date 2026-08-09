@@ -7,6 +7,8 @@ mkdir -p ~/.config/home-manager
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 ln -sf "${SCRIPT_DIR}/home-manager/home.nix" ~/.config/home-manager/home.nix
-HOSTNAME=$(hostname)
+HOSTNAME=$(hostname 2>/dev/null || echo "coder")
+HOSTNAME="${HOSTNAME:-coder}"
 ln -sf "${SCRIPT_DIR}/home-manager/${HOSTNAME}.nix" "${SCRIPT_DIR}/home-manager/cfg.nix"
+
 
