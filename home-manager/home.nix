@@ -17,6 +17,24 @@
       default = null;
       description = "GPG signing key for git commits";
     };
+
+    customizations.fish.interactiveShellInit = lib.mkOption {
+      type = lib.types.lines;
+      default = "";
+      description = "Extra interactive shell initialization commands for fish shell (config.fish)";
+    };
+
+    customizations.fish.shellInit = lib.mkOption {
+      type = lib.types.lines;
+      default = "";
+      description = "Extra shell initialization commands for fish shell (config.fish)";
+    };
+
+    customizations.fish.loginShellInit = lib.mkOption {
+      type = lib.types.lines;
+      default = "";
+      description = "Extra login shell initialization commands for fish shell (config.fish)";
+    };
   };
 
   config = {
@@ -180,6 +198,9 @@
   programs.fish = {
     enable = true;
     generateCompletions = false;
+    interactiveShellInit = config.customizations.fish.interactiveShellInit;
+    shellInit = config.customizations.fish.shellInit;
+    loginShellInit = config.customizations.fish.loginShellInit;
   };
 
   programs.bash = {
