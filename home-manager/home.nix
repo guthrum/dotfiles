@@ -201,6 +201,15 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.ghostty = {
+    enable = true;
+    package = if pkgs.stdenv.isLinux then pkgs.ghostty else null;
+    settings = {
+      "command" = "${pkgs.fish}/bin/fish -l";
+      "shell-integration" = "fish";
+    };
+  };
+
   programs.fish = {
     enable = true;
     generateCompletions = false;
