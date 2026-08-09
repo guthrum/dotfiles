@@ -205,7 +205,7 @@
     enable = true;
     package = if pkgs.stdenv.isLinux then pkgs.ghostty else null;
     settings = {
-      "command" = "${pkgs.fish}/bin/fish -l";
+      "command" = "${pkgs.fish}/bin/fish -l -i";
       "shell-integration" = "fish";
     };
   };
@@ -216,11 +216,12 @@
     interactiveShellInit = config.customizations.fish.interactiveShellInit;
     shellInit = config.customizations.fish.shellInit;
     loginShellInit = config.customizations.fish.loginShellInit;
-    shellAliases = {
-      vim = "nvim";
+    shellAbbrs = {
       grep = "rg";
       ls = "eza";
-    } // config.customizations.fish.shellAliases;
+      vim = "nvim";
+    };
+    shellAliases = config.customizations.fish.shellAliases;
   };
 
   programs.bash = {
