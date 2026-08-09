@@ -35,6 +35,12 @@
       default = "";
       description = "Extra login shell initialization commands for fish shell (config.fish)";
     };
+
+    customizations.fish.shellAliases = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      default = { };
+      description = "Extra shell aliases for fish shell";
+    };
   };
 
   config = {
@@ -201,6 +207,11 @@
     interactiveShellInit = config.customizations.fish.interactiveShellInit;
     shellInit = config.customizations.fish.shellInit;
     loginShellInit = config.customizations.fish.loginShellInit;
+    shellAliases = {
+      vim = "nvim";
+      grep = "rg";
+      ls = "eza";
+    } // config.customizations.fish.shellAliases;
   };
 
   programs.bash = {
