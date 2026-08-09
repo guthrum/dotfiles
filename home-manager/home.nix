@@ -6,6 +6,12 @@
   ];
 
   options = {
+    customizations.git.email = lib.mkOption {
+      type = lib.types.str;
+      default = "git.tim.armstrong@gmail.com";
+      description = "Git user email address";
+    };
+
     customizations.git.signingKey = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
@@ -189,7 +195,7 @@
     settings = {
       user = {
         name  = "Tim Armstrong";
-        email = "git.tim.armstrong@gmail.com";
+        email = config.customizations.git.email;
       } // (lib.optionalAttrs (config.customizations.git.signingKey != null) {
         signingkey = config.customizations.git.signingKey;
       });
