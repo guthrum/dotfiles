@@ -151,6 +151,8 @@
       -- Configure diagnostics globally (replaces deprecated vim.lsp.with)
       vim.diagnostic.config({
         update_in_insert = false,
+        virtual_text = true,
+        virtual_lines = { current_line = true },
       })
 
       -- Handle keymaps and settings on LSP attachment
