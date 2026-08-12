@@ -63,6 +63,7 @@
     pkgs.fzf
     pkgs.eza
     pkgs.gh
+    pkgs.pyright
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
