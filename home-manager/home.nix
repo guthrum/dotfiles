@@ -64,6 +64,7 @@
     pkgs.eza
     pkgs.gh
     pkgs.pyright
+    pkgs.nil
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -172,7 +173,7 @@
       })
 
       -- Enable servers dynamically (replaces deprecated tsserver with ts_ls)
-      local servers = { 'rust_analyzer', 'pyright', 'terraformls', 'html', 'ts_ls' }
+      local servers = { 'rust_analyzer', 'pyright', 'terraformls', 'html', 'ts_ls', 'nil_ls' }
       for _, lsp in ipairs(servers) do
         vim.lsp.enable(lsp)
       end
