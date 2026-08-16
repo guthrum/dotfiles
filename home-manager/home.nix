@@ -223,7 +223,8 @@
 
   programs.ghostty = {
     enable = true;
-    package = if pkgs.stdenv.isLinux then pkgs.ghostty else null;
+    package = null;
+    systemd.enable = false;
     settings = {
       "command" = "${pkgs.fish}/bin/fish -l -i";
       "shell-integration" = "fish";
