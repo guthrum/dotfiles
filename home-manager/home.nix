@@ -42,23 +42,6 @@
       description = "Extra shell aliases for fish shell";
     };
 
-    programs.pi-coding-agent = {
-      enable = lib.mkEnableOption "pi-coding-agent";
-
-      package = lib.mkPackageOption pkgs "pi-coding-agent" { };
-
-      settings = lib.mkOption {
-        type = (pkgs.formats.json { }).type;
-        default = { };
-        description = "Configuration written to ~/.pi/agent/settings.json";
-      };
-
-      models = lib.mkOption {
-        type = (pkgs.formats.json { }).type;
-        default = { };
-        description = "Configuration written to ~/.pi/agent/models.json";
-      };
-    };
   };
 
   config = {
@@ -102,19 +85,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ] ++ lib.optional config.programs.pi-coding-agent.enable config.programs.pi-coding-agent.package;
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".pi/agent/settings.json" = lib.mkIf (config.programs.pi-coding-agent.enable && config.programs.pi-coding-agent.settings != { }) {
-      source = (pkgs.formats.json { }).generate "pi-settings.json" config.programs.pi-coding-agent.settings;
-    };
-
-    ".pi/agent/models.json" = lib.mkIf (config.programs.pi-coding-agent.enable && config.programs.pi-coding-agent.models != { }) {
-      source = (pkgs.formats.json { }).generate "pi-models.json" config.programs.pi-coding-agent.models;
-    };
-
     ".config/nvim/lua/plugins.lua".text = ''
       -- Managed by Home Manager. Plugins are managed and loaded via Nix.
     '';
