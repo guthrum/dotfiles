@@ -225,6 +225,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.cargo.enable = true;
+
   programs.uv.enable = true;
 
   programs.ghostty = {
