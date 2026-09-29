@@ -309,13 +309,6 @@
     enable = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "vim-eldar";
-        src = pkgs.fetchzip {
-          url = "https://github.com/agude/vim-eldar/archive/refs/heads/master.tar.gz";
-          sha256 = "1g1ngfvhwnxv8b15ff3mnh1sjj21s4jbgksqw5j028bgmdr94nls";
-        };
-      })
       nvim-lspconfig
       cmp-nvim-lsp
       cmp_luasnip
@@ -336,7 +329,6 @@
 
       opt.background = 'dark'
       opt.termguicolors = true
-      -- vim.cmd 'colorscheme eldar'
 
       opt.spelllang = 'en'
 
