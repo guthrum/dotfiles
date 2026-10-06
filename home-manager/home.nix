@@ -71,6 +71,9 @@
     pkgs.nil
     pkgs.taplo
     pkgs.yaml-language-server
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.rust-analyzer
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

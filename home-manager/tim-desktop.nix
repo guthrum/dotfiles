@@ -8,5 +8,8 @@
 
   home.packages = [
     pkgs.antigravity-cli
+    pkgs.pi-coding-agent
   ];
+
+  home.file.".pi/agent/settings.json".source = ../pi/settings.json;
 }
