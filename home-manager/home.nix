@@ -245,7 +245,15 @@
   programs.fish = {
     enable = true;
     generateCompletions = false;
-    interactiveShellInit = config.customizations.fish.interactiveShellInit;
+    interactiveShellInit = ''
+      ${config.customizations.fish.interactiveShellInit}
+
+      if not string match -q "*nix-profile*" $PATH
+        if test -e /etc/profile.d/nix-daemon.fish
+          source /etc/profile.d/nix-daemon.fish
+        end
+      end
+    '';
     shellInit = config.customizations.fish.shellInit;
     loginShellInit = config.customizations.fish.loginShellInit;
     shellAbbrs = {
@@ -308,6 +316,22 @@
       };
     };
   };
+  programs.pi-coding-agent = {
+      enable = true;
+
+      # Supply runtime dependencies required for npm/npx-based extensions
+      extraPackages = with pkgs; [
+        nodejs
+      ];
+
+      # Settings declared here are serialized to ~/.pi/agent/settings.json
+      settings = {
+        extensions = [
+          "builtin:mcp"
+          "npm:pi-subagents"
+        ];
+      };
+    };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
